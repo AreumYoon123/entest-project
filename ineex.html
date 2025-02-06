@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EN MEDIA</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="inner">
+            <div class="logo"><img src="./img/logo.svg" alt=""></div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- 인트로 (이미지 슬라이드) -->
+    <section class="intro">
+        <div class="inner">
+            <div class="carousel">
+                <div class="slide active" style="background-image: url('./img/main.jpg');"></div>
+                <div class="slide" style="background-image: url('./img/main2.jpg');"></div>
+                <div class="slide" style="background-image: url('./img/main3.jpg');"></div>
+                <div class="slide" style="background-image: url('./img/main4.jpg');"></div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+            <div class="intro-content">
+                <h1>Lorem ipsum dolor sit amet,</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 카드 섹션 -->
+    <section class="cards">
+        <div class="inner">
+            <div class="card">
+                <img src="./img/img1.jpg" alt="이미지 1">
+                <h2>Lorem ipsum dolor sit amet,</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Lorem ipsum dolor sit amet,</p>
+            </div>
+            <div class="card">
+                <img src="./img/img2.jpg" alt="이미지 2">
+                <h2>Lorem ipsum dolor sit amet,</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <P>Lorem ipsum dolor sit amet,</P>
+            </div>
+            <div class="card">
+                <img src="./img/img3.jpg" alt="이미지 3">
+                <h2>Lorem ipsum dolor sit amet,</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <P>Lorem ipsum dolor sit amet,</P>
+            </div>
+            <div class="card">
+                <img src="./img/img4.jpg" alt="이미지 4">
+                <h2>Lorem ipsum dolor sit amet,</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <P>Lorem ipsum dolor sit amet,</P>
+            </div>
+        </div>
+    </section>
+
+    <!-- 커스텀 섹션  -->
+    <section class="custom">
+        <div class="inner">
+            <h2>Our Work</h2>
+            <div class="gallery">
+                <img src="./img/custom1.jpg" alt="Project 1">
+                <img src="./img/custom2.jpg" alt="Project 2">
+                <img src="./img/custom3.jpg" alt="Project 3">
+                <img src="./img/custom4.jpg" alt="Project 4">
+                <img src="./img/custom5.jpg" alt="Project 5">
+                <img src="./img/custom5.jpg" alt="Project 6">
+            </div>
+        </div>
+    </section>
+    
+    <!-- 모달 (이미지 클릭 시 확대) -->
+    <div class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+    
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="inner">
+            <div class="logo"><img src="./img/logo.svg" alt=""></div>
+            <p>Copyright © 2025. EN MEDIA All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/slide.js" defer></script>
+    <script src="./js/hamburger.js" defer></script>
+    <script src="./js/custom.js" defer></script>
+
+</body>
+</html>

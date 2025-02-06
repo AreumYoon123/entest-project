@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: Base;
+    src: url(../fonts/Pretendard-Medium.woff);
+  }
+  @font-face {
+    font-family: BaseBold;
+    src: url(../fonts/Pretendard-Bold.woff);
+  }
+
+
+  html, input, button {font-family: "Base", sans-serif;}
+  h1, h2{font-family: "BaseBold";}
+  h3, h4, h5, h6, strong, b, p {font-family: "Base";}
+  .en {font-family: "BaseEn";}
+  .enBold {font-family: "BaseEnBold";}
+  

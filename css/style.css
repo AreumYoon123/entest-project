@@ -1,0 +1,378 @@
+@charset "UTF-8";
+@import url(./reset.css);
+@import url(./font.css);
+
+* {
+    box-sizing: border-box;
+}
+
+.inner {
+    width: 100%;
+    padding: 0 50px;
+}
+
+/* HEADER */
+.header {
+    position: fixed; /* 고정 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;  
+    background: white; 
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header .inner {
+    height: 100%;  /* 부모 높이에 맞춤 */
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header ul {
+    display: flex;
+}
+
+.header li {
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+.header .logo img {
+    width: 100px;
+    height: auto;
+}
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* 햄버거 버튼 기본 숨김 */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* INTRO (배경 이미지 + 캐러셀) */
+.intro .inner{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 0;
+    background: url('../img/main.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.intro .intro-content {
+    z-index: 10;
+    position: absolute;
+    left: 200px;
+}
+
+.intro h1 {
+    font-size: 36px;
+    text-align: left;
+    max-width: 300px;
+    padding-bottom: 30px;
+}
+
+.intro p {
+    font-size: 18px;
+    text-align: left;
+    max-width: 350px;
+}
+
+.carousel {
+    position: relative; /* 부모 기준 설정 */
+    width: 100%;
+    height: 100%; /* 슬라이드 크기 유지 */
+    overflow: hidden; 
+}
+
+/* 기본적으로 모든 슬라이드를 숨김 */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 활성화된 슬라이드만 표시 */
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* 이전/다음 버튼 스타일 */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 28px;
+    z-index: 2;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* CARD 섹션 */
+.cards {
+    padding: 80px 20px;
+    background: #f8f8f8;
+}
+
+.cards .inner {
+    max-width: 1350px;
+    margin: 0 auto;
+    display: grid;  /* FLEX → GRID 변경 */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* ✅ 반응형 자동 조정 */
+    gap: 20px; /* 카드 간격 */
+}
+
+/* 카드 디자인 */
+.card {
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* 카드 이미지 */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+/* 카드 제목 */
+.card h2 {
+    font-size: 25px;
+    margin: 10px 20px;
+    max-width: 200px; /* 글자 길이 제한 */
+    text-align: left;
+}
+
+/* 카드 본문 */
+.card p {
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+    margin: 10px 20px;
+}
+
+/* 두 번째 p 태그 스타일 */
+.card p:nth-of-type(2) {
+    color: #c7c7c7;
+    margin-top: 50px;
+}
+
+
+/* CUSTOM  */
+/* 커스텀 섹션 스타일 */
+.custom {
+    text-align: center;
+    padding: 80px 20px;
+    background: #f8f8f8;
+}
+
+.custom .inner {
+    max-width: 1350px;  /* 카드 섹션과 동일한 최대 너비 */
+    margin: 0 auto;
+}
+
+/* 섹션 제목 스타일 */
+.custom h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* CSS Grid로 갤러리 정렬 */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 반응형 */
+    gap: 20px;
+}
+
+/* 이미지 스타일 */
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* 호버 효과 */
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/*모달 스타일 */
+/* 모달 초기 상태 */
+.modal {
+    opacity: 0; /* 처음엔 투명하게 설정 */
+    visibility: hidden; /*처음에는 보이지 않음 */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex; /* flex 유지 */
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* 부드러운 애니메이션 */
+}
+
+/* 모달 활성화 시 */
+.modal.active {
+    opacity: 1; 
+    visibility: visible; 
+}
+
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+/* 닫기 버튼 */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* FOOTER */
+footer .inner {
+    background: rgb(79, 79, 79);
+    color: white;
+    text-align: left;
+    padding: 70px;
+    padding-left: 200px;
+}
+
+footer .logo img {
+    margin-bottom: 10px;
+    width: 100px;
+    height: auto;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1024px) {
+    .header .inner {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 810px) {
+    .header {
+        height: 60px;
+    }
+    .nav-menu {
+        display: none; /* 기본 메뉴 숨기기 */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: white;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu.active {
+        display: flex; /* 버튼 클릭 시 보이게 */
+    }
+
+    .hamburger {
+        display: block; /* 버튼 보이게 */
+    }
+    .intro {
+        height: 300px;
+    }
+     
+    .intro .intro-content {
+        position: absolute;
+        left: 100px;
+    }
+    .intro h1 {
+        font-size: 5vw;
+        text-align: left;
+        font-weight: bold;
+        padding-bottom: 30px;
+        max-width: 220px;
+    }
+    .intro p {
+        font-size: 3vw;
+        text-align: left;
+        max-width: 270px;
+    }
+    .cards .inner {
+        margin-top: 300px;
+    }
+    footer .inner {
+        padding-left: 100px;
+    }
+}
+@media (max-width: 376px) {
+    .header {
+        height: 60px;
+    }
+    .intro {
+        height: 300px;
+    }
+    .intro h1 {
+        font-size: 28px;
+    }
+    .intro .intro-content {
+        position: absolute;
+        left: 80px;
+    }
+    
+    .intro h1 {
+        font-size: 5vw;
+        text-align: left;
+        font-weight: bold;
+        max-width: 150px;
+        padding-bottom: 30px;
+    }
+    
+    .intro p {
+        font-size: 3vw;
+        text-align: left;
+        max-width: 200px;
+    }
+    .card {
+        width: 90%;
+    }
+    footer .inner {
+        padding-left: 50px;
+    }
+    
+}
